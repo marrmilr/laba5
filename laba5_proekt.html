@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAB5</title>
+</head>
+<body>
+    <script>
+        class Animal {
+            constructor(food,location) {
+                this.food = food;
+                this.location = location;
+            }
+            makeNoice() {
+                document.write("говорит");
+            }
+            eat() {
+                document.write("ест");
+            }
+            sleep() {
+                document.write("спит");
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(food, location, color) {
+                super(food, location);
+                this.color = color;
+            }
+            makeNoice() {
+                document.write(`${this.color} собака говорит`);
+            }
+            eat() {
+                document.write(`${this.color} собака ест ${this.food}`);
+            }
+            sleep() {
+                document.write(`${this.color} собака спит`);
+            }
+        }
+        class Cat extends Animal {
+            constructor(food, location, color) {
+                super(food, location);
+                this.color = color;
+            }
+            makeNoice() {
+                document.write(`${this.color} кошка говорит`);
+            }
+            eat() {
+                document.write(`${this.color} кошка ест ${this.food}`);
+            }
+            sleep() {
+                document.write(`${this.color} кошка спит`);
+            }
+        }
+        class Horse extends Animal {
+            constructor(food, location, breed) {
+                super(food, location);
+                this.breed = breed;
+            }
+            makeNoice() {
+                document.write(`${this.breed} лошадь говорит`);
+            }
+
+            eat() {
+                document.write(`${this.breed} лошадь ест ${this.food}`);
+            }
+
+            sleep() {
+                document.write(`${this.breed} лошадь спит`);
+            }
+        }
+
+        class Veterinar {
+            treatAnimal(animal) {
+                document.write(`Ветеринар лечит ${animal.constructor.name} <br>`);
+                document.write(`ест ${animal.food} <br>`);
+                document.write(`место обитания: ${animal.location} <br>`);
+            }
+        }
+
+        var dog = new Dog("мясо", "дом", "рыжая");
+        var cat = new Cat("корм", "квартира", "белая");
+        var horse = new Horse("сено", "стойло", "русская верховая");
+        
+        document.write(`${dog.makeNoice()}<br>`);
+        document.write(`${cat.makeNoice()} <br>`);
+        document.write(`${horse.makeNoice()} <br><br>`);
+
+        document.write(`${dog.eat()}<br>`);
+        document.write(`${cat.eat()}<br>`);
+        document.write(`${horse.eat()}<br><br>`);
+
+        document.write(`${dog.sleep()}<br>`);
+        document.write(`${cat.sleep()}<br>`);
+        document.write(`${horse.sleep()}<br><br>`);
+
+        var veterinar = new Veterinar();
+        document.write(veterinar.treatAnimal(dog));
+
+    </script>
+</body>
+</html>
